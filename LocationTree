@@ -38,3 +38,11 @@ private Node removeRec(Node root, String data) {
     }
     return root;
 }
+private String minValue(Node root) {
+    String min = root.data;
+    while (root.left != null) {
+        min = root.left.data;
+        root = root.left;
+    }
+    return min;
+}
