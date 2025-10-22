@@ -1,0 +1,67 @@
+public class LocationTree {
+    private class Node {
+        String data;
+        Node left, right;
+        Node(String data) { this.data = data; }
+    }
+
+    private Node root;
+
+    private String normalize(String s) {
+        return s.trim().toLowerCase();
+    }
+
+    public void insert(String data) {
+        data = normalize(data);
+        root = insertRec(root, data);
+    }
+
+    private Node insertRec(Node root, String data) {
+        if (root == null) return new Node(data);
+        if (data.compareTo(root.data) < 0) root.left = insertRec(root.left, data);
+        else if (data.compareTo(root.data) > 0) root.right = insertRec(root.right, data);
+        return root;
+    }
+
+    public void remove(String data) {
+        data = normalize(data);
+        root = removeRec(root, data);
+    }
+
+    private Node removeRec(Node root, String data) {
+        if (root == null) return null;
+        if (data.compareTo(root.data) < 0) root.left = removeRec(root.left, data);
+        else if (data.compareTo(root.data) > 0) root.right = removeRec(root.right, data);
+        else {
+            if (root.left == null) return root.right;
+            if (root.right == null) return root.left;
+            root.data = minValue(root.right);
+            root.right = removeRec(root.right, root.data);
+        }
+        return root;
+    }
+
+    private String minValue(Node root) {
+        String min = root.data;
+        while (root.left != null) {
+            min = root.left.data;
+            root = root.left;
+        }
+        return min;
+    }
+
+    public void display() {
+        System.out.print("Locations: ");
+        inorder(root);
+        System.out.println();
+    }
+
+    private void inorder(Node root) {
+        if (root != null) {
+            inorder(root.left);
+            System.out.print(root.data + " ");
+            inorder(root.right);
+        }
+    }
+}
+
