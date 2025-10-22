@@ -40,3 +40,8 @@ public class LocationManager {
             System.out.println("Failed to remove road! Check that both locations exist and are connected.");
         }
     }
+
+        public void showConnections() { graph.displayConnections(); }
+    public void showLocations() { tree.display(); }
+}
+
