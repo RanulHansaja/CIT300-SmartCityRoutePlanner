@@ -25,6 +25,40 @@ public class Main {
                 System.out.println("Invalid input! Please enter a number from 1 to 7.");
                 continue; // redirect to main menu
             }
+            switch (choice) {
+                case 1 -> {
+                    System.out.print("Enter location name: ");
+                    manager.addLocation(sc.nextLine());
+                }
+                case 2 -> {
+                    System.out.print("Enter location name to remove: ");
+                    manager.removeLocation(sc.nextLine());
+                }
+                case 3 -> {
+                    System.out.print("Enter first location: ");
+                    String a = sc.nextLine();
+                    System.out.print("Enter second location: ");
+                    String b = sc.nextLine();
+                    manager.addRoad(a, b);
+                }
+                case 4 -> {
+                    System.out.print("Enter first location: ");
+                    String a = sc.nextLine();
+                    System.out.print("Enter second location: ");
+                    String b = sc.nextLine();
+                    manager.removeRoad(a, b);
+                }
+                case 5 -> manager.showConnections();
+                case 6 -> manager.showLocations();
+                case 7 -> {
+                    System.out.println("Exiting program. Goodbye!");
+                    sc.close();
+                    return;
+                }
+                default -> System.out.println("Invalid choice! Please enter a number from 1 to 7.");
+            }
+        }
+
 
  
        
