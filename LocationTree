@@ -1,0 +1,12 @@
+public class LocationTree {
+    private class Node {
+        String data;
+        Node left, right;
+        Node(String data) { this.data = data; }
+    }
+
+    private Node root;
+}
+private String normalize(String s) {
+    return s.trim().toLowerCase();
+}
