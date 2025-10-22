@@ -58,6 +58,9 @@ public class Main {
                 default -> System.out.println("Invalid choice! Please enter a number from 1 to 7.");
             }
         }
+   }
+}
+
 
 
  
