@@ -46,3 +46,16 @@ private String minValue(Node root) {
     }
     return min;
 }
+public void display() {
+    System.out.print("Locations: ");
+    inorder(root);
+    System.out.println();
+}
+
+private void inorder(Node root) {
+    if (root != null) {
+        inorder(root.left);
+        System.out.print(root.data + " ");
+        inorder(root.right);
+    }
+}
