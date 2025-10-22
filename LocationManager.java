@@ -15,3 +15,12 @@ public class LocationManager {
             System.out.println("Location '" + name + "' already exists.");
         }
     }
+
+        public void removeLocation(String name) {
+        if (graph.removeLocation(name)) {
+            tree.remove(name);
+            System.out.println("Location '" + name + "' removed successfully.");
+        } else {
+            System.out.println("Location '" + name + "' not found.");
+        }
+    }
