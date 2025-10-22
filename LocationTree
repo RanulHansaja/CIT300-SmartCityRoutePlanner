@@ -59,3 +59,15 @@ private void inorder(Node root) {
         inorder(root.right);
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        LocationTree tree = new LocationTree();
+        tree.insert("Colombo");
+        tree.insert("Galle");
+        tree.insert("Kandy");
+        tree.display();
+        tree.remove("Galle");
+        tree.display();
+    }
+}
+
