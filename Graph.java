@@ -48,3 +48,11 @@ public boolean addLocation(String location) {
             System.out.println(loc + " -> " + adjList.get(loc));
         }
     }
+        public boolean exists(String name) {
+        return adjList.containsKey(normalize(name));
+    }
+
+    public Set<String> getAllLocations() {
+        return adjList.keySet();
+    }
+}
