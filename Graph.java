@@ -7,3 +7,9 @@ public class Graph {
         return name.trim().toLowerCase();
     }
 }
+public boolean addLocation(String location) {
+        location = normalize(location);
+        if (adjList.containsKey(location)) return false;
+        adjList.put(location, new HashSet<>());
+        return true;
+    }
