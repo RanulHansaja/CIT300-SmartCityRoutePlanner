@@ -38,3 +38,13 @@ public boolean addLocation(String location) {
         adjList.get(loc2).remove(loc1);
         return true;
     }
+    public void displayConnections() {
+        if (adjList.isEmpty()) {
+            System.out.println("No locations or roads available.");
+            return;
+        }
+        System.out.println("--- All Connections ---");
+        for (String loc : adjList.keySet()) {
+            System.out.println(loc + " -> " + adjList.get(loc));
+        }
+    }
