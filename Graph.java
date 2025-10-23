@@ -13,3 +13,12 @@ public boolean addLocation(String location) {
         adjList.put(location, new HashSet<>());
         return true;
     }
+    public boolean removeLocation(String location) {
+        location = normalize(location);
+        if (!adjList.containsKey(location)) return false;
+        adjList.remove(location);
+        for (Set<String> connections : adjList.values()) {
+            connections.remove(location);
+        }
+        return true;
+    }
