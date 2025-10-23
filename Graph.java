@@ -30,3 +30,11 @@ public boolean addLocation(String location) {
         adjList.get(loc2).add(loc1);
         return true;
     }
+    public boolean removeRoad(String loc1, String loc2) {
+        loc1 = normalize(loc1);
+        loc2 = normalize(loc2);
+        if (!adjList.containsKey(loc1) || !adjList.containsKey(loc2)) return false;
+        adjList.get(loc1).remove(loc2);
+        adjList.get(loc2).remove(loc1);
+        return true;
+    }
